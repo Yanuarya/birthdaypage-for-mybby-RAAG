@@ -1,9 +1,8 @@
-const audio = new Audio('music.mp3');
-const video = document.getElementById('video');
 const content = document.getElementById('content');
-const loading = document.getElementById('loading');
+const music = document.getElementById('bg-music');
 
 function showLoading(callback) {
+  const loading = document.getElementById('loading');
   loading.style.display = 'block';
   setTimeout(() => {
     loading.style.display = 'none';
@@ -11,18 +10,27 @@ function showLoading(callback) {
   }, 1000);
 }
 
+function startApp() {
+  showMessage(); // langsung masuk ke ucapan
+}
+
+function playMusic() {
+  music.play();
+}
+
+function stopMusic() {
+  music.pause();
+  music.currentTime = 0;
+}
+
 function showCake() {
   showLoading(() => {
     content.innerHTML = `
       <h1>Tiup Lilin 🎂</h1>
       <img src="kueultah.png" alt="Kue Ulang Tahun"/>
-      <p>maaf ya sayang ga gerak, susah nyari animasinya</p>
+      <p>maaf ya sayang ga gerak, susah nyari animasinya 😅</p>
     `;
   });
-}
-
-function playMusic() {
-  audio.play();
 }
 
 function showMessage() {
@@ -37,23 +45,23 @@ function showMessage() {
 function showPhotos() {
   showLoading(() => {
     content.innerHTML = `
-      <h1>Kenangan Kita 🖼️</h1>
-      <img src="photo1.jpeg" /><br/><br/>
-      <img src="photo2.jpeg" /><br/><br/>
-      <img src="photo3.jpeg" /><br/><br/>
-      <img src="photo4.jpeg" /><br/><br/>
-      <img src="photo5.jpeg" />
+      <h1>Kenangan Kita 📸</h1>
+      <img src="photo1.jpeg"><br><br>
+      <img src="photo2.jpeg"><br><br>
+      <img src="photo3.jpeg"><br><br>
+      <img src="photo4.jpeg"><br><br>
+      <img src="photo5.jpeg">
     `;
   });
 }
 
 function showVideo() {
   showLoading(() => {
-    audio.pause();
-    audio.currentTime = 0;
+    stopMusic();
     content.innerHTML = `
-      <h1>Surprise Video 🎥</h1>
-      <video id="video" src="video.mp4" controls autoplay></video>
+      <h1>Video Surprise 🎥</h1>
+      <video src="video.mp4" controls autoplay style="max-width:90%;border-radius:12px;"></video>
     `;
   });
 }
+
