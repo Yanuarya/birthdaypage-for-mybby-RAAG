@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #cce7ff;
+  background-image: url('stitch.png');
+  background-repeat: repeat;
+  background-size: 80px;
+  text-align: center;
+  color: #333;
+}
+
+.screen {
+  display: none;
+  padding: 20px;
+}
+
+.screen.active {
+  display: block;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+}
+
+.long-text {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  white-space: pre-wrap;
+}
+
+.photo-gallery img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
